@@ -8,5 +8,6 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 def index(request):
-    return HttpResponse("Hello world!")
+    my_dict = {}
+    return render(request, 'help_teacher_app/index.html', context=my_dict)
 
