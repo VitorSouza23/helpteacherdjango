@@ -1,3 +1,24 @@
-h1{
-    color: red;
+html, body{
+    background-color: #f7f4e1;
 }
+
+nav{   
+    font-size: 18px;   
+}
+
+
+
+.welcomejumbotron{
+    background: url('../images/helpteacher_jumbotron.jpg');
+    background-size: cover;
+    padding-bottom: 25%;
+    text-align: center;
+    border: 1px solid grey;
+}
+
+.welcomejumbotron h1{
+    color: #1c3464;
+    font-weight: bolder;
+    margin-top: 0;
+}
+
