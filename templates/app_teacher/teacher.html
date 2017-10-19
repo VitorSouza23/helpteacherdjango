@@ -7,6 +7,11 @@
     <title>Professores</title>
 </head>
 <body>
-    
+    <h1>Professor</h1>
+    <select name="professor_selecioando" id="professor_selecionado">
+        {% for professor in professores %}
+            <option value="{% professor %}">{{ professor.name }}</option>
+        {% endfor %}
+    </select>
 </body>
 </html>
