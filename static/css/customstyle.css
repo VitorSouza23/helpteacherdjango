@@ -58,3 +58,12 @@ nav{
     font-weight: bold;
 }
 
+.align-table-options{
+    text-align: center;
+}
+
+.align-table-options .btn-primary{
+    width: 75%;
+}
+
+
