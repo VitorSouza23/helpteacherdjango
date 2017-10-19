@@ -1,11 +1,32 @@
 html, body{
-    background-color: #f7f4e1;
+
 }
 
 nav{   
     font-size: 18px;   
 }
 
+.navbar-default{
+   background-color: #cccccc;
+}
+
+.navbar-default .container-fluid a, .navbar-default .container-fluid a:focus{
+   
+    color: #333399;
+}
+
+.navbar-default .container-fluid a:hover{
+    color: #0191C8;
+}
+
+.navbar-default .container-fluid .navbar-nav a,.navbar-default .container-fluid .navbar-nav a:focus{
+    
+    color: 	#0191C8;
+}
+
+.navbar-default .container-fluid .navbar-nav a:hover{
+    color: #333399;
+}
 
 
 .welcomejumbotron{
@@ -13,12 +34,27 @@ nav{
     background-size: cover;
     padding-bottom: 25%;
     text-align: center;
-    border: 1px solid grey;
+    border: 1px groove rgba(28, 52, 100, 0.5);
 }
 
 .welcomejumbotron h1{
-    color: #1c3464;
+    color: #333399;
     font-weight: bolder;
     margin-top: 0;
+}
+
+.panel-default .panel-heading{
+    background-color: #cccccc;
+    font-weight: bold;
+    color:#333399;
+}
+
+.panel-default .panel-body{
+    margin: 1% 1% 1% 1%;    
+}
+
+.table-options p{
+    text-align: center;
+    font-weight: bold;
 }
 
