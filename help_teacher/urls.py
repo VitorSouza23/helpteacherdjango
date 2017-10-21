@@ -22,4 +22,4 @@ urlpatterns = [
     url(r'^app_teacher/', include('app_teacher.urls')),
     url(r'^help_teacher_app/', include('help_teacher_app.urls')),
     url(r'^admin/', admin.site.urls),
-]
+] 
