@@ -1,0 +1,31 @@
+.teacher-content{
+    text-align: center;
+    margin-top: 50px;
+}
+
+.teacher-content h1{
+    color: #333399;
+    font-weight: bolder;
+    margin-top: 0;
+}
+
+.teacher-content .teacher-content-title{
+   
+    padding: 20px 0;
+    background-color: #efefef;
+    margin-bottom: 50px;
+   
+}
+
+.teacher-content .teacher-content-select{
+    text-align: center;
+}
+
+.teacher-content .teacher-content-select label{
+    color: 	#0191C8;
+}
+
+.teacher-content .teacher-content-select select{
+    width: 50%;
+    margin-left: 1%;
+}
