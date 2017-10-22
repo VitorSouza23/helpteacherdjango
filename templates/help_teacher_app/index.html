@@ -21,9 +21,9 @@
                 <a class="navbar-brand" href={% url 'index' %}>HelpTeacher</a>
             </div>
             <ul class="nav navbar-nav">
-                <li><a href={% url 'teacher' %}>Professor</a></li>
-                <li><a href="#">Gerenciamento de Turmas</a></li>
-                <li><a href="#">Gerenciamento de Notas</a></li>
+                <li><a href="{% url 'teacher' %}">Professor</a></li>
+                <li><a href="{% url 'classes' %}">Gerenciamento de Turmas</a></li>
+                <li><a href="{% url 'grades' %}">Gerenciamento de Notas</a></li>
             </ul>
         </div>
     </nav>
@@ -44,22 +44,21 @@
         <div class="row table-options">
             <div class="col-lg-4 align-table-options">
                 <p>Mantenha suas informações</p>
-                <a class="btn btn-primary" href={% url 'teacher' %} role="button">Professor</a>
+                <a class="btn btn-primary" href={% url 'teacher' role="button">Professor</a>
             </div>
 
             <div class="col-lg-4 align-table-options">
                 <p>Gerencie suas turmas</p>
-                <a class="btn btn-primary" href="#" %} role="button">Turmas</a>
+                <a class="btn btn-primary" href="{% url 'classes' %}" role="button">Turmas</a>
             </div>
 
             <div class="col-lg-4 align-table-options">
                 <p>Organize as notas</p>
-                <a class="btn btn-primary" href="#" %} role="button">Notas</a>
+                <a class="btn btn-primary" href="{% url 'grades' %}" role="button">Notas</a>
             </div>
         </div>
 
-
-
+        <p class="copyright text-muted">Copyright &copy; HelpTeacher {% now "Y" %}</p>
     </div>
 
 

@@ -17,23 +17,17 @@
 
     <!-- Menu Principal -->
     <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href={% url 'index' %}>HelpTeacher</a>
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href={% url 'index' %}>HelpTeacher</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a href="{% url 'teacher' %}">Professor</a></li>
+                    <li><a href="{% url 'classes' %}">Gerenciamento de Turmas</a></li>
+                    <li><a href="{% url 'grades' %}">Gerenciamento de Notas</a></li>
+                </ul>
             </div>
-            <ul class="nav navbar-nav">
-                <li>
-                    <a href={% url 'teacher' %}>Professor</a>
-                </li>
-                <li>
-                    <a href="#">Gerenciamento de Turmas</a>
-                </li>
-                <li>
-                    <a href="#">Gerenciamento de Notas</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+        </nav>
 
     <!-- Conteúdo da Página -->
 
@@ -53,6 +47,8 @@
                     </select>
             </div>
         </div>
+
+        <p class="copyright text-muted">Copyright &copy; HelpTeacher {% now "Y" %}</p>
     </div>
 
 

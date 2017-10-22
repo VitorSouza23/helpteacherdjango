@@ -2,6 +2,10 @@ html, body{
 
 }
 
+.copyright{
+    text-align: center;
+}
+
 nav{   
     font-size: 18px;   
 }
