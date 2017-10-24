@@ -39,11 +39,14 @@
             </div>
             <div class="teacher-content-select">
                 <label for="professor_selecionado">Selecione o professor: </label>
-                <select name="professor_selecioando" id="professor_selecionado">
+                <form method="POST">
+                    {% csrf_token %}
+                    <select name="professor_selecionado" id="professor_selecionado" onchange="$('form').submit();">
                         {% for teacherAux in teachers %}
-                        <option value={{ teacherAux }}>{{ teacherAux.name }}</option>
+                        <option value="{{ teacherAux.id }}" {% if teacherAux.id == selected_teacher.id %} selected {% endif %}>{{ teacherAux.name }}</option>
                         {% endfor %}
                     </select>
+                </form>
             </div>
 
             <div class="jumbotron">
@@ -53,8 +56,8 @@
                 <p>{{ selected_teacher.formation }}</p>
                 <h4>Escola:</h4>
                 <p>{{ selected_teacher.school }}</p>
-                <a class="btn btn-danger" href="{% url 'form_teacher' %}">Excluir Porfessor</a>
-                <a class="btn btn-info" href="{% url 'form_teacher' %}">Excluir Porfessor</a>
+                <a class="btn btn-danger" href="{% url 'delete_teacher' selected_teacher.id %}">Excluir Porfessor</a>
+                <a class="btn btn-info" href="{% url 'update_teacher' selected_teacher.id %}">Alterar Porfessor</a>
             </div>
 
         </div>

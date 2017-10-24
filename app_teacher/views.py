@@ -9,6 +9,10 @@ import models, forms
 # Create your views here.
 def teacher(request):
     my_dict = {"teachers": models.TeacherVO.objects.all(), "selected_teacher": models.TeacherVO.objects.first()}
+
+    if request.method == "POST":
+        my_dict["selected_teacher"] = models.TeacherVO.objects.get(id=request.POST["professor_selecionado"])
+        
     return render(request, 'app_teacher/teacher.html', context=my_dict)
 
 def form_teacher(request):
@@ -30,3 +34,18 @@ def delte_teacher(request, teacher_id):
     teacher = models.TeacherVO.objects.get(id=teacher_id)
     teacher.delete()
     return HttpResponseRedirect('/app_teacher/')
+
+def update_teacher(request, teacher_id):
+    teacherAux = models.TeacherVO.objects.get(id=teacher_id)
+    form = forms.FormTeacher(initial={'name': teacherAux.name, 'formation': teacherAux.formation, 'school': teacherAux.school})
+    if request.method == "POST":
+        form = forms.FormTeacher(request.POST)
+        
+        if form.is_valid():
+            teacherAux.name = form.cleaned_data['name']
+            teacherAux.formation = form.cleaned_data['formation']
+            teacherAux.school = form.cleaned_data['school']
+            teacherAux.save()
+            return HttpResponseRedirect('/app_teacher/')
+
+    return render(request, 'app_teacher/form_teacher.html', {'form': form})
