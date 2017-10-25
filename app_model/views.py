@@ -35,3 +35,22 @@ def form_course(request):
             return HttpResponseRedirect('/app_model/courses/')
 
     return render(request, 'app_model/form_course.html', {'form': form})
+
+def delete_course(request, course_id):
+    course = models.CourseVO.objects.get(id=course_id)
+    course.delete()
+    return HttpResponseRedirect('/app_model/courses/')
+
+def update_course(request, course_id):
+    course = models.CourseVO.objects.get(id=course_id)
+    form = forms.FormCourse(initial={'code': course.code, 'name': course.name})
+    if request.method == "POST":
+        form = forms.FormCourse(request.POST)
+        if form.is_valid():
+            course.code = form.cleaned_data['code']
+            course.name = form.cleaned_data['name']
+            course.save()
+            return HttpResponseRedirect('/app_model/courses/')
+
+    return render(request, 'app_model/form_course.html', {'form': form})         
+

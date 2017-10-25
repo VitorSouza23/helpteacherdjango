@@ -32,6 +32,7 @@
                     <tr>
                         <th>Curso</th>
                         <th>Código</th>
+                        <th>Opções</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -39,6 +40,10 @@
                     <tr>
                         <td><a href="">{{course.name}}</a></td>
                         <td>{{course.code}}</td>
+                        <td>
+                            <a href="{% url 'delete_course' course.id %}" class="btn btn-danger btn-xs">Excluir</a>
+                            <a href="{% url 'update_course' course.id %}" class="btn btn-info btn-xs">Alterar</a>
+                        </td>
                     </tr>
                     {% endfor %}
                 </tbody>
