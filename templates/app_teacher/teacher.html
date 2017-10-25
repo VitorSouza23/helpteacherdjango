@@ -7,13 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Professores</title>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/customstyle.css' %}">
     <link rel="stylesheet" href="{% static 'css/teacherstyle.css' %}">
 </head>
 
 <body>
-
     <!-- Menu Principal -->
     <nav class="navbar navbar-default">
         <div class="container-fluid">
@@ -21,9 +21,15 @@
                 <a class="navbar-brand" href={% url 'index' %}>HelpTeacher</a>
             </div>
             <ul class="nav navbar-nav">
-                <li><a href="{% url 'teacher' %}">Professor</a></li>
-                <li><a href="{% url 'classes' %}">Gerenciamento de Turmas</a></li>
-                <li><a href="{% url 'grades' %}">Gerenciamento de Notas</a></li>
+                <li>
+                    <a href="{% url 'teacher' %}">Professor</a>
+                </li>
+                <li>
+                    <a href="{% url 'classes' %}">Gerenciamento de Turmas</a>
+                </li>
+                <li>
+                    <a href="{% url 'grades' %}">Gerenciamento de Notas</a>
+                </li>
             </ul>
         </div>
     </nav>
@@ -32,11 +38,10 @@
 
     <div class="container">
         <div class="teacher-content">
-            <div class="teacher-content-title">
-                <h1>Professor</h1>
-                <p>Gerencie as informações dos professores</p>
-                <a class="btn btn-primary" href="{% url 'form_teacher' %}">Adicionar Porfessor</a>
+            <div class="jumbotron teacher-content-title">
+                <h1>Professor</h1>               
             </div>
+
             <div class="teacher-content-select">
                 <label for="professor_selecionado">Selecione o professor: </label>
                 <form method="POST">
@@ -49,15 +54,18 @@
                 </form>
             </div>
 
-            <div class="jumbotron">
+            <div class="jumbotron teacher-info">
                 <h4>Nome:</h4>
                 <p>{{ selected_teacher.name }}</p>
                 <h4>Formação:</h4>
                 <p>{{ selected_teacher.formation }}</p>
                 <h4>Escola:</h4>
                 <p>{{ selected_teacher.school }}</p>
-                <a class="btn btn-danger" href="{% url 'delete_teacher' selected_teacher.id %}">Excluir Porfessor</a>
-                <a class="btn btn-info" href="{% url 'update_teacher' selected_teacher.id %}">Alterar Porfessor</a>
+                <div class="teacher-info-btns">
+                        <a class="btn btn-primary" href="{% url 'form_teacher' %}">Adicionar Professor</a>
+                        <a class="btn btn-info" href="{% url 'update_teacher' selected_teacher.id %}">Editar Informações</a>
+                        <a class="btn btn-danger" href="{% url 'delete_teacher' selected_teacher.id %}">Excluir</a>
+                </div>                
             </div>
 
         </div>
@@ -71,16 +79,16 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
 </body>
 {% block JavaScript %}
 <script>
-    $().read(function() {
-        $("#professor_selecionado").change(function() {
+    $().read(function () {
+        $("#professor_selecionado").change(function () {
 
         });
     });
-</script>
-{% endblock JavaScript %}
+</script> {% endblock JavaScript %}
 
 </html>

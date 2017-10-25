@@ -34,17 +34,18 @@ nav{
 
 
 .welcomejumbotron{
-    background: url('../images/helpteacher_jumbotron.jpg');
+    background: url('../images/professor.jpg');
     background-size: cover;
     padding-bottom: 25%;
-    text-align: center;
+    text-align: left;    
     border: 1px groove rgba(28, 52, 100, 0.5);
 }
 
 .welcomejumbotron h1{
-    color: #333399;
+    color: #361072;
     font-weight: bolder;
     margin-top: 0;
+    font-size: 36px;
 }
 
 .panel-default .panel-heading{

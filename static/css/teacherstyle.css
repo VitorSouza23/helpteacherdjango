@@ -1,32 +1,59 @@
 .teacher-content{
     text-align: center;
-    margin-top: 50px;
-    margin-bottom: 25%;
 }
 
 .teacher-content h1{
-    color: #333399;
+    color: #361072;
     font-weight: bolder;
     margin-top: 0;
+    font-size: 36px;
 }
 
 .teacher-content .teacher-content-title{
-   
-    padding: 20px 0;
-    background-color: #efefef;
-    margin-bottom: 50px;
-   
+    background: url('../images/professor.jpg');
+    background-size: cover;
+    padding-bottom: 25%;
+    text-align: left;    
+    border: 1px groove rgba(28, 52, 100, 0.5);
+    margin-top:0;
 }
 
-.teacher-content .teacher-content-select{
+.teacher-content-select{
+   padding: 2.5% 0;
+   text-align: center;
+   width: 100%;
+}
+
+.teacher-content-select label{
+    color: #361072;
+    font-weight: bolder;
+    margin-top: 0;
+    font-size: 26px;
+}
+
+.teacher-content-select select{
+    margin-left: 10px;
+    width: 250px;
+    height: 25px;
+}
+
+.teacher-info{
+    border: 1px groove grey;
     text-align: center;
 }
 
-.teacher-content .teacher-content-select label{
-    color: 	#0191C8;
+.teacher-info p{
+    margin: 0 150px;
+    border: 1px solid black;
+    background-color: white;
+    color: #0191C8;
+    border-radius: 25px;
 }
 
-.teacher-content .teacher-content-select select{
-    width: 50%;
-    margin-left: 1%;
+.teacher-info .teacher-info-btns{
+    margin-top: 50px;
+}
+
+.teacher-info .teacher-info-btns a{
+    width: 150px;
 }
