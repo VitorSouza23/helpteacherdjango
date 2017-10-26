@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> {% load staticfiles %}
 <html lang="en">
 
 <head>
@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Alunos</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/customstyle.css' %}">
+    <link rel="stylesheet" href="{% static 'css/coursesstyle.css' %}">
 </head>
 
 <body>
@@ -18,10 +22,58 @@
                 <li><a href="{% url 'teacher' %}">Professor</a></li>
                 <li><a href="{% url 'courses' %}">Gerenciamento de Cursos</a></li>
                 <li><a href="{% url 'classes' %}">Gerenciamento de Turmas</a></li>
-                <li><a href="{% url 'grades' %}">Gerenciamento de Notas</a></li>
+                <li><a href="{% url 'students' %}">Gerenciamento de Alunos</a></li>
+
             </ul>
         </div>
     </nav>
+    <div class="container">
+
+        <div class="jumbotron welcomejumbotron">
+                    <h1>Turmas</h1>
+                </div>
+        <h2>Alunos</h2>
+        <div class="jumbotron jumbo-courses">
+            <table class="table table-hover">
+               
+                <thead>
+                    <tr>
+                        <th>Matrícola</th>
+                        <th>Nome</th>
+                        <th>Opções</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for student in students %}
+                    <tr>
+                        <td>{{student.registration}}</td>
+                        <td>{{student.name}}</td>
+                        <td>
+                            <div class="student-btns">
+                                <a href="{% url 'delete_student' student.id %}" class="btn btn-danger btn-xs">Excluir</a>
+                                <a href="{% url 'update_student' student.id %}" class="btn btn-info btn-xs">Alterar</a>
+                                <a href="{% url 'grades' student.id %}" class="btn btn-success btn-xs">Ver Notas</a>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <div class="courses-info-btns">
+                <a href="{% url 'form_student' %}" class="btn btn-primary">Novo Aluno</a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <p class="copyright text-muted">Copyright &copy; HelpTeacher {% now "Y" %}</p>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>
 
 </html>

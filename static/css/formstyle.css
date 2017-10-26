@@ -28,7 +28,14 @@
     margin-top: 25px;
 }
 
-.jumbo-form #id_code{
+.jumbo-form #id_code, #id_registration{
     width: 100%;
     text-align: center;
+    padding-left: 0;
+}
+
+.jumbo-form select{
+    border-radius: 10px;
+    border: 1px solid black;
+    text-align: center; 
 }

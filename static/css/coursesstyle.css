@@ -39,3 +39,7 @@ h2{
 .jumbo-courses .courses-btns a{
     width: 50px;
 }
+
+.jumbo-courses .student-btns a{
+    width:80px;
+}
