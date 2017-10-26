@@ -21,10 +21,36 @@
                 <li><a href="{% url 'teacher' %}">Professor</a></li>
                 <li><a href="{% url 'courses' %}">Gerenciamento de Cursos</a></li>
                 <li><a href="{% url 'classes' %}">Gerenciamento de Turmas</a></li>
-                <li><a href="{% url 'grades' %}">Gerenciamento de Notas</a></li>
+                <li><a href="{% url 'students' %}">Gerenciamento de Alunos</a></li>
             </ul>
         </div>
     </nav>
+    <div class="container">
+        <div class="jumbotron">
+            <table class="table table-striped">
+                <h3>Notas do Aluno {{student.name}}</h3>
+                <thead>
+                    <tr>
+                        <th>Valor</th>
+                        <th>Observação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for grade in grades %}
+                    <tr>
+                        <td>{{grade.value}}</td>
+                        <td>{{grade.observation}}</td>
+                        <td>
+                            <a href="{% url 'delete_grade' student.id grade.id%}" class="btn btn-danger btn-xs">Excluir</a>
+                            <a href="{% url 'update_grade' student.id grade.id%}" class="btn btn-info btn-xs">Alterar</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <a href="{% url 'form_grade' student.id %}" class="btn btn-primary">Nova Nota</a>
+        </div>
+    </div>
 
     <div class="container">
         <p class="copyright text-muted">Copyright &copy; HelpTeacher {% now "Y" %}</p>

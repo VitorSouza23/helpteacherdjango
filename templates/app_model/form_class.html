@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Cadastro de Curso</title>
+    <title>Cadastro de Turma</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/customstyle.css' %}">
 </head>
@@ -27,7 +27,7 @@
     <div class="container">
         <div class="jumbotron">
             <form method="POST">
-                <h2>Dados do Curso:</h2>
+                <h2>Dados da Turma:</h2>
                 {{ form.as_p }} {% csrf_token %}
                 <input class="btn btn-primary" type="submit" value="Concluído ">
             </form>

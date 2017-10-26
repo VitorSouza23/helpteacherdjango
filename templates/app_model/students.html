@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> {% load staticfiles %}
 <html lang="en">
 
 <head>
@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Alunos</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/customstyle.css' %}">
 </head>
 
 <body>
@@ -18,10 +21,48 @@
                 <li><a href="{% url 'teacher' %}">Professor</a></li>
                 <li><a href="{% url 'courses' %}">Gerenciamento de Cursos</a></li>
                 <li><a href="{% url 'classes' %}">Gerenciamento de Turmas</a></li>
-                <li><a href="{% url 'grades' %}">Gerenciamento de Notas</a></li>
+                <li><a href="{% url 'students' %}">Gerenciamento de Alunos</a></li>
+
             </ul>
         </div>
     </nav>
+    <div class="container">
+        <div class="jumbotron">
+            <table class="table table-striped">
+                <h1>Alunos</h1>
+                <thead>
+                    <tr>
+                        <th>Matrícola</th>
+                        <th>Nome</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for student in students %}
+                    <tr>
+                        <td>{{student.registration}}</td>
+                        <td>{{student.name}}</td>
+                        <td>
+                            <a href="{% url 'delete_student' student.id %}" class="btn btn-danger btn-xs">Excluir</a>
+                            <a href="{% url 'update_student' student.id %}" class="btn btn-info btn-xs">Alterar</a>
+                            <a href="{% url 'grades' student.id %}" class="btn btn-success btn-xs">Ver Notas</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <a href="{% url 'form_student' %}" class="btn btn-primary">Novo Aluno</a>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <p class="copyright text-muted">Copyright &copy; HelpTeacher {% now "Y" %}</p>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>
 
 </html>

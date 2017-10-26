@@ -21,10 +21,40 @@
                 <li><a href="{% url 'teacher' %}">Professor</a></li>
                 <li><a href="{% url 'courses' %}">Gerenciamento de Cursos</a></li>
                 <li><a href="{% url 'classes' %}">Gerenciamento de Turmas</a></li>
-                <li><a href="{% url 'grades' %}">Gerenciamento de Notas</a></li>
+                <li><a href="{% url 'students' %}">Gerenciamento de Alunos</a></li>
             </ul>
         </div>
     </nav>
+    <div class="container">
+        <div class="jumbotron">
+            <table class="table table-striped">
+                <h1>Turmas</h1>
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Nome</th>
+                        <th>Dsicplina</th>
+                        <th>Horário</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for classvo in classes %}
+                    <tr>
+                        <td><a href="">{{classvo.code}}</a></td>
+                        <td>{{classvo.name}}</td>
+                        <td>{{classvo.discipline}}</td>
+                        <td>{{classvo.schedule}}</td>
+                        <td>
+                            <a href="{% url 'delete_class' classvo.id %}" class="btn btn-danger btn-xs">Excluir</a>
+                            <a href="{% url 'update_class' classvo.id %}" class="btn btn-info btn-xs">Alterar</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <a href="{% url 'form_class' %}" class="btn btn-primary">Nova Turma</a>
+        </div>
+    </div>
 
     <div class="container">
         <p class="copyright text-muted">Copyright &copy; HelpTeacher {% now "Y" %}</p>
