@@ -1,3 +1,7 @@
+body{
+    text-align: center;
+}
+
 .jumbo-courses{
     text-align: center;
     border: 1px groove grey;
@@ -8,11 +12,11 @@
   
 }
 
-.jumbo-courses h1{
+h2{
     color: #361072;
     font-weight: bolder;
-    margin-top: 0;
-    font-size: 36px;
+    margin-bottom: 30px;
+    font-size: 28px;
 }
 
 .jumbo-courses .table-hover thead {
