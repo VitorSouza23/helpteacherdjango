@@ -1,0 +1,32 @@
+.jumbo-form{
+    text-align: center;
+    border: 1px groove grey;
+    margin: 0 150px;
+}
+
+.jumbo-form h2{
+    color: #361072;
+    font-weight: bolder;
+    margin-bottom: 30px;
+    font-size: 28px;
+}
+
+.jumbo-form p{
+    width: 100%;
+    text-align: center; 
+    display: grid;   
+}
+
+.jumbo-form p input{
+    border-radius: 25px;
+    border: 1px solid black;  
+    padding: 0 20px;
+}
+
+.jumbo-form form .btn-primary{
+    margin-top: 25px;
+}
+
+.jumbo-form #id_code{
+    width: 100%;
+}
