@@ -29,11 +29,16 @@
                     <a href="{% url 'classes' %}">Gerenciamento de Turmas</a>
                 </li>
                 <li>
-                    <a href="{% url 'grades' %}">Gerenciamento de Notas</a>
+                    <a>Gerenciamento de Notas</a>
                 </li>
             </ul>
         </div>
     </nav>
+
+    <div class="container">
+        <div class="jumbotron welcomejumbotron">
+            <h1>Notas</h1>
+        </div> 
     <div class="container">
         <div class="jumbotron">
             <table class="table table-striped">
@@ -61,10 +66,7 @@
         </div>
     </div>
 
-    <div class="container">
-        <div class="jumbotron welcomejumbotron">
-            <h1>Notas</h1>
-        </div>
+    
 
         <p class="copyright text-muted">Copyright &copy; HelpTeacher {% now "Y" %}</p>
     </div>
