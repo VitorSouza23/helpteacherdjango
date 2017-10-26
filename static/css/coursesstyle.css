@@ -1,0 +1,37 @@
+.jumbo-courses{
+    text-align: center;
+    border: 1px groove grey;
+}
+
+.jumbo-courses .table-hover {
+    margin-top: 25px;
+  
+}
+
+.jumbo-courses h1{
+    color: #361072;
+    font-weight: bolder;
+    margin-top: 0;
+    font-size: 36px;
+}
+
+.jumbo-courses .table-hover thead {
+    background-color:  	#e0e0e0;
+    color: #361072;
+}
+
+.jumbo-courses .table-hover thead tr th{
+    text-align: center;
+}
+
+.jumbo-courses .courses-info-btns{
+    margin-top: 50px;
+}
+
+.jumbo-courses .courses-info-btns a{
+    width: 150px;
+}
+
+.jumbo-courses .courses-btns a{
+    width: 50px;
+}

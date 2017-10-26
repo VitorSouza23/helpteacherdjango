@@ -26,3 +26,7 @@
 .jumbo-form form .btn-primary{
     margin-top: 25px;
 }
+
+.jumbo-form #id_code{
+    width: 100%;
+}

@@ -6,8 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Cursos</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/customstyle.css' %}">
+    <link rel="stylesheet" href="{% static 'css/coursesstyle.css' %}">
 </head>
 
 <body>
@@ -17,16 +19,24 @@
                 <a class="navbar-brand" href={% url 'index' %}>HelpTeacher</a>
             </div>
             <ul class="nav navbar-nav">
-                <li><a href="{% url 'teacher' %}">Professor</a></li>
-                <li><a href="{% url 'courses' %}">Gerenciamento de Cursos</a></li>
-                <li><a href="{% url 'classes' %}">Gerenciamento de Turmas</a></li>
-                <li><a href="{% url 'grades' %}">Gerenciamento de Notas</a></li>
+                <li>
+                    <a href="{% url 'teacher' %}">Professor</a>
+                </li>
+                <li>
+                    <a href="{% url 'courses' %}">Gerenciamento de Cursos</a>
+                </li>
+                <li>
+                    <a href="{% url 'classes' %}">Gerenciamento de Turmas</a>
+                </li>
+                <li>
+                    <a href="{% url 'grades' %}">Gerenciamento de Notas</a>
+                </li>
             </ul>
         </div>
     </nav>
     <div class="container">
-        <div class="jumbotron">
-            <table class="table table-striped">
+        <div class="jumbotron jumbo-courses">
+            <table class="table table-hover">
                 <h1>Cursos</h1>
                 <thead>
                     <tr>
@@ -38,17 +48,24 @@
                 <tbody>
                     {% for course in courses %}
                     <tr>
-                        <td><a href="">{{course.name}}</a></td>
                         <td>{{course.code}}</td>
                         <td>
-                            <a href="{% url 'delete_course' course.id %}" class="btn btn-danger btn-xs">Excluir</a>
-                            <a href="{% url 'update_course' course.id %}" class="btn btn-info btn-xs">Alterar</a>
+                            <a href="">{{course.name}}</a>
+                        </td>
+                        <td>
+                            <div class="courses-btns">
+                                <a href="{% url 'delete_course' course.id %}" class="btn btn-danger btn-xs">Excluir</a>
+                                <a href="{% url 'update_course' course.id %}" class="btn btn-info btn-xs">Alterar</a>
+                            </div>
                         </td>
                     </tr>
                     {% endfor %}
                 </tbody>
             </table>
-            <a href="{% url 'form_course' %}" class="btn btn-primary">Novo Curso</a>
+            <div class="courses-info-btns">
+                <a href="{% url 'form_course' %}" class="btn btn-primary">Adicionar</a>
+            </div>
+
         </div>
     </div>
 
@@ -56,7 +73,8 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
