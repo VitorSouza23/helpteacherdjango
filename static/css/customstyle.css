@@ -1,7 +1,3 @@
-html, body{
-
-}
-
 .copyright{
     text-align: center;
 }
@@ -10,12 +6,7 @@ nav{
     font-size: 18px;   
 }
 
-.navbar-default{
-   background-color: #cccccc;
-}
-
 .navbar-default .container-fluid a, .navbar-default .container-fluid a:focus{
-   
     color: #333399;
 }
 

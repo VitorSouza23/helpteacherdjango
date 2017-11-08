@@ -3,43 +3,37 @@
 }
 
 .teacher-content h1{
-    color: #361072;
+    color: #0191C8;
     font-weight: bolder;
-    margin-top: 0;
+    margin-top: 20px;
     font-size: 36px;
 }
 
-.teacher-content .teacher-content-title{
-    background: url('../images/professor.jpg');
-    background-size: cover;
-    padding-bottom: 25%;
-    text-align: left;    
-    border: 1px groove rgba(28, 52, 100, 0.5);
-    margin-top:0;
-}
-
 .teacher-content-select{
-   padding: 2.5% 0;
+   margin-top: 20px;
+    padding: 2.5% 0;
    text-align: center;
-   width: 100%;
+   width: 50%;
+   display: inline-flex;
 }
 
 .teacher-content-select label{
-    color: #361072;
+    color: #0191C8;
     font-weight: bolder;
     margin-top: 0;
-    font-size: 26px;
+    font-size: 21px;
 }
 
 .teacher-content-select select{
     margin-left: 10px;
     width: 250px;
-    height: 25px;
+    height: 30px;
 }
 
 .teacher-info{
     border: 1px groove grey;
     text-align: center;
+    background-color: #f6fefd;
 }
 
 .teacher-info p{

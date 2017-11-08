@@ -8,13 +8,13 @@ class FormCourse(forms.Form):
 
 class FormClass(forms.Form):
     code = forms.IntegerField(label='Código')
-    discipline = forms.CharField(max_length=264, label='Discipliína')
+    discipline = forms.CharField(max_length=264, label='Disciplina')
     name = forms.CharField(max_length=264, label='Nome (Identificador) da Turma')
-    schedule = forms.DateTimeField(['%H:%M'], label="Hoarário da Aula (HH:MM):")
+    schedule = forms.DateTimeField(['%H:%M'], label="Horário da Aula (HH:MM):")
     course = forms.ModelChoiceField(queryset=models.CourseVO.objects.all(), label='Curso')
 
 class FormStudent(forms.Form):
-    registration = forms.IntegerField()
+    registration = forms.IntegerField(label='Matrícula')
     name = forms.CharField(max_length=264, label='Nome')
     class_scholl = forms.ModelChoiceField(queryset=models.ClassVO.objects.all(), label='Turma')
 
