@@ -1,83 +1,44 @@
+{%extends 'help_teacher_app/base.html'%} 
+
 <!DOCTYPE html> {% load staticfiles %}
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Professores</title>
+{% block styleCustom %}
+<link rel="stylesheet" href="{% static 'css/teacherstyle.css' %}">
+<title>Professores</title>
+{% endblock %}
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-        crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'css/customstyle.css' %}">
-    <link rel="stylesheet" href="{% static 'css/teacherstyle.css' %}">
-</head>
 
-<body>
-    <!-- Menu Principal -->
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href={% url 'index' %}>HelpTeacher</a>
-            </div>
-            <ul class="nav navbar-nav">
-                <li>
-                    <a href="{% url 'teacher' %}">Professor</a>
-                </li>
-                <li>
-                    <a href="{% url 'courses' %}">Gerenciamento de Cursos</a>
-                </li>
-                <li>
-                    <a href="{% url 'classes' %}">Gerenciamento de Turmas</a>
-                </li>
-                <li>
-                    <a href="{% url 'students' %}">Gerenciamento de Alunos</a>
-                </li>
+{% block content %}
 
-            </ul>
-        </div>
-    </nav>
-
-    <!-- Conteúdo da Página -->
-    <div class="container">
-        <div class="teacher-content">
-            <h1>Professor</h1>
-            <div class="teacher-content-select">
-                <label for="professor_selecionado">Selecione o professor: </label>
-                <form method="POST">
-                    {% csrf_token %}
-                    <select name="professor_selecionado" id="professor_selecionado" onchange="$('form').submit();">
-                        {% for teacherAux in teachers %}
-                        <option value="{{ teacherAux.id }}" {% if teacherAux.id == selected_teacher.id %} selected {% endif %}>{{ teacherAux.name }}</option>
-                        {% endfor %}
-                    </select>
-                </form>
-            </div>
-
-            <div class="jumbotron teacher-info">
-                <h4>Nome:</h4>
-                <p>{{ selected_teacher.name }}</p>
-                <h4>Formação:</h4>
-                <p>{{ selected_teacher.formation }}</p>
-                <h4>Escola:</h4>
-                <p>{{ selected_teacher.school }}</p>
-                <div class="teacher-info-btns">
-                    <a class="btn btn-primary" href="{% url 'form_teacher' %}">Adicionar Professor</a>
-                    <a class="btn btn-info" href="{% url 'update_teacher' selected_teacher.id %}">Editar Informações</a>
-                    <a class="btn btn-danger" href="{% url 'delete_teacher' selected_teacher.id %}">Excluir</a>
-                </div>
-            </div>
-
-        </div>
-
-        <p class="copyright text-muted">Copyright &copy; HelpTeacher {% now "Y" %}</p>
+<div class="teacher-content">
+    <h1>Professor</h1>
+    <div class="teacher-content-select">
+        <label for="professor_selecionado">Selecione o professor: </label>
+        <form method="POST">
+            {% csrf_token %}
+            <select name="professor_selecionado" id="professor_selecionado" onchange="$('form').submit();">
+                {% for teacherAux in teachers %}
+                <option value="{{ teacherAux.id }}" {% if teacherAux.id == selected_teacher.id %} selected {% endif %}>{{ teacherAux.name }}</option>
+                {% endfor %}
+            </select>
+        </form>
     </div>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-        crossorigin="anonymous"></script>
-</body>
+
+    <div class="jumbotron teacher-info">
+        <h4>Nome:</h4>
+        <p>{{ selected_teacher.name }}</p>
+        <h4>Formação:</h4>
+        <p>{{ selected_teacher.formation }}</p>
+        <h4>Escola:</h4>
+        <p>{{ selected_teacher.school }}</p>
+        <div class="teacher-info-btns">
+            <a class="btn btn-primary" href="{% url 'form_teacher' %}">Adicionar Professor</a>
+            <a class="btn btn-info" href="{% url 'update_teacher' selected_teacher.id %}">Editar Informações</a>
+            <a class="btn btn-danger" href="{% url 'delete_teacher' selected_teacher.id %}">Excluir</a>
+        </div>
+    </div>
+</div>
+
 {% block JavaScript %}
 <script>
     $().read(function () {
@@ -87,4 +48,4 @@
     });
 </script> {% endblock JavaScript %}
 
-</html>
+{% endblock %}

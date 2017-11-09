@@ -1,71 +1,36 @@
-<!DOCTYPE html> {% load staticfiles %}
-<html lang="en">
+{%extends 'help_teacher_app/base.html'%}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<!DOCTYPE html> {% load staticfiles %} 
+{% block content %}
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<div class="jumbotron welcomejumbotron">
+    <h1>Bem vindo ao HelpTeacher</h1>
+</div>
 
-    <link rel="stylesheet" href="{% static 'css/customstyle.css' %}">
-    <title>HelpTeacher</title>
-</head>
+<div class="panel panel-default">
+    <div class="panel-heading">Objetivo</div>
+    <div class="panel-body">A aplicação HelpTeacher propõe oferecer uma solução para profissionais da área da educação para gerenciamento de ações
+        cotidianas. Portanto, a aplicação oferecerá recursos para professores manterem informações sobre alunos, turmas e
+        cálculo da notas.
+    </div>
+</div>
 
-<body>
-
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href={% url 'index' %}>HelpTeacher</a>
-            </div>
-            <ul class="nav navbar-nav">
-                <li><a href="{% url 'teacher' %}">Professor</a></li>
-                <li><a href="{% url 'courses' %}">Gerenciamento de Cursos</a></li>
-                <li><a href="{% url 'classes' %}">Gerenciamento de Turmas</a></li>
-                <li><a href="{% url 'students' %}">Gerenciamento de Alunos</a></li>
-
-            </ul>
-        </div>
-    </nav>
-
-    <div class="container">
-        <div class="jumbotron welcomejumbotron">
-            <h1>Bem vindo ao HelpTeacher</h1>
-        </div>
-
-        <div class="panel panel-default">
-            <div class="panel-heading">Objetivo</div>
-            <div class="panel-body">A aplicação HelpTeacher propõe oferecer uma solução para profissionais da área da educação para gerenciamento de ações cotidianas. Portanto, a aplicação oferecerá recursos para professores manterem informações sobre alunos, turmas e cálculo
-                da notas.
-            </div>
-        </div>
-
-        <div class="row table-options">
-            <div class="col-lg-4 align-table-options">
-                <p>Mantenha suas informações</p>
-                <a class="btn btn-primary" href='{% url 'teacher' %}' role="button">Professor</a>
-            </div>
-
-            <div class="col-lg-4 align-table-options">
-                <p>Gerencie suas turmas</p>
-                <a class="btn btn-primary" href="{% url 'classes' %}" role="button">Turmas</a>
-            </div>
-
-            <div class="col-lg-4 align-table-options">
-                <p>Gerencie os cursos</p>
-                <a class="btn btn-primary" href="{% url 'courses' %}" role="button">Cursos</a>
-            </div>
-        </div>
-
-        <p class="copyright text-muted">Copyright &copy; HelpTeacher {% now "Y" %}</p>
+<div class="row table-options">
+    <div class="col-lg-4 align-table-options">
+        <p>Mantenha suas informações</p>
+        <a class="btn btn-primary" href="{% url 'teacher' %}" role="button">Professor</a>
     </div>
 
+    <div class="col-lg-4 align-table-options">
+        <p>Gerencie suas turmas</p>
+        <a class="btn btn-primary" href="{% url 'classes' %}" role="button">Turmas</a>
+    </div>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-</body>
+    <div class="col-lg-4 align-table-options">
+        <p>Gerencie os cursos</p>
+        <a class="btn btn-primary" href="{% url 'courses' %}" role="button">Cursos</a>
+    </div>
+</div>
+</div>
 
-</html>
+{% endblock %}
