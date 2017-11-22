@@ -19,6 +19,15 @@
                 <a class="navbar-brand" href="{% url 'index' %}">HelpTeacher</a>
             </div>
             <ul class="nav navbar-nav">
+                
+                {% if not request.user.is_authenticated %}
+                <li>
+                    <a href='{% url "register" %}'>Registrar</a>
+                </li>
+                <li>
+                    <a href='{% url "login" %}'>Login</a>
+                </li>
+                {% else %}
                 <li>
                     <a href="{% url 'teacher' %}">Professor</a>
                 </li>
@@ -31,6 +40,10 @@
                 <li>
                     <a href="{% url 'students' %}">Gerenciamento de Alunos</a>
                 </li>
+                <li>
+                    <a href='{% url "logout" %}'>Logout</a>
+                </li>
+                {% endif %}
             </ul>
         </div>
     </nav>

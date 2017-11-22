@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     'help_teacher_app',
     'app_teacher',
     'app_model',
+    'crispy_forms',
+    'markdown_deux',
+    'pagedown',
 ]
 
 MIDDLEWARE = [

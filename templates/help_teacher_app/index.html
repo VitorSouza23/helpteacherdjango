@@ -14,7 +14,7 @@
         cálculo da notas.
     </div>
 </div>
-
+{% if request.user.is_authenticated %}
 <div class="row table-options">
     <div class="col-lg-4 align-table-options">
         <p>Mantenha suas informações</p>
@@ -31,6 +31,7 @@
         <a class="btn btn-primary" href="{% url 'courses' %}" role="button">Cursos</a>
     </div>
 </div>
+{% endif %}
 </div>
 
 {% endblock %}
