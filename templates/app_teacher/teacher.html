@@ -15,14 +15,14 @@
 
     <div class="jumbotron teacher-info">
         <h4>Nome:</h4>
-        <p>{{ selected_teacher.name }}</p>
+        <p>{{ teacher.name }}</p>
         <h4>Formação:</h4>
-        <p>{{ selected_teacher.formation }}</p>
+        <p>{{ teacher.formation }}</p>
         <h4>Escola:</h4>
-        <p>{{ selected_teacher.school }}</p>
+        <p>{{ teacher.school }}</p>
         <div class="teacher-info-btns">
-            <a class="btn btn-info" href="{% url 'update_teacher' selected_teacher.id %}">Editar Informações</a>
-            <a class="btn btn-danger" href="{% url 'delete_teacher' selected_teacher.id %}">Excluir</a>
+            <a class="btn btn-info" href="{% url 'update_teacher' teacher.id %}">Editar Informações</a>
+            <a class="btn btn-danger" href="{% url 'delete_teacher' teacher.id %}">Excluir</a>
         </div>
     </div>
 </div>
