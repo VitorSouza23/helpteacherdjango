@@ -4,11 +4,12 @@ from __future__ import unicode_literals
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 
+
 import models, forms
 
 # Create your views here.
 def teacher(request):
-    my_dict = {"teachers": models.TeacherVO.objects.all(), "selected_teacher": models.TeacherVO.objects.first()}
+    my_dict = {"teachers": models.TeacherVO.objects.filter(user__id=request.user.id), "selected_teacher": models.TeacherVO.objects.first()}
 
     if request.method == "POST":
         my_dict["selected_teacher"] = models.TeacherVO.objects.get(id=request.POST["professor_selecionado"])
@@ -36,6 +37,9 @@ def delte_teacher(request, teacher_id):
     return HttpResponseRedirect('/app_teacher/')
 
 def update_teacher(request, teacher_id):
+    if teacher_id == None:
+        return form_teacher(request)
+    
     teacherAux = models.TeacherVO.objects.get(id=teacher_id)
     form = forms.FormTeacher(initial={'name': teacherAux.name, 'formation': teacherAux.formation, 'school': teacherAux.school})
     if request.method == "POST":

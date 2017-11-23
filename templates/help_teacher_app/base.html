@@ -5,10 +5,8 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
         crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'css/customstyle.css' %}"> 
-    
-    {% block styleCustom %}
-        <title>HelpTeacher</title>
+    <link rel="stylesheet" href="{% static 'css/customstyle.css' %}"> {% block styleCustom %}
+    <title>HelpTeacher</title>
     {% endblock %}
 </head>
 
@@ -19,15 +17,8 @@
                 <a class="navbar-brand" href="{% url 'index' %}">HelpTeacher</a>
             </div>
             <ul class="nav navbar-nav">
-                
-                {% if not request.user.is_authenticated %}
-                <li>
-                    <a href='{% url "register" %}'>Registrar</a>
-                </li>
-                <li>
-                    <a href='{% url "login" %}'>Login</a>
-                </li>
-                {% else %}
+
+                {% if not request.user.is_authenticated %} {% else %}
                 <li>
                     <a href="{% url 'teacher' %}">Professor</a>
                 </li>
@@ -40,8 +31,57 @@
                 <li>
                     <a href="{% url 'students' %}">Gerenciamento de Alunos</a>
                 </li>
+                {% endif %}
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                {% if request.user.is_authenticated %}
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="glyphicon glyphicon-user"></span>
+                        <strong>{{ request.user.username }}</strong>
+                        <span class="glyphicon glyphicon-chevron-down"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <div class="navbar-login">
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <p class="text-center">
+                                            <span class="glyphicon glyphicon-user icon-size"></span>
+                                        </p>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <p class="text-left">
+                                            <strong>{{ request.user.username }}</strong>
+                                        </p>
+                                        <p class="text-left small">{{ request.user.email }}</p>
+                                        <p class="text-left">
+                                            <a href="#" class="btn btn-primary btn-block btn-sm btn-font-white">Atualizar Dados</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <div class="navbar-login navbar-login-session">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <p>
+                                            <a href='{% url "logout" %}' class="btn btn-danger btn-block btn-font-white">Logout</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                {% else %}
                 <li>
-                    <a href='{% url "logout" %}'>Logout</a>
+                    <a href='{% url "register" %}'>Registrar</a>
+                </li>
+                <li>
+                    <a href='{% url "login" %}'>Login</a>
                 </li>
                 {% endif %}
             </ul>

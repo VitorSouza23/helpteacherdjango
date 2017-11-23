@@ -12,17 +12,6 @@
 
 <div class="teacher-content">
     <h1>Professor</h1>
-    <div class="teacher-content-select">
-        <label for="professor_selecionado">Selecione o professor: </label>
-        <form method="POST">
-            {% csrf_token %}
-            <select name="professor_selecionado" id="professor_selecionado" onchange="$('form').submit();">
-                {% for teacherAux in teachers %}
-                <option value="{{ teacherAux.id }}" {% if teacherAux.id == selected_teacher.id %} selected {% endif %}>{{ teacherAux.name }}</option>
-                {% endfor %}
-            </select>
-        </form>
-    </div>
 
     <div class="jumbotron teacher-info">
         <h4>Nome:</h4>
@@ -32,7 +21,6 @@
         <h4>Escola:</h4>
         <p>{{ selected_teacher.school }}</p>
         <div class="teacher-info-btns">
-            <a class="btn btn-primary" href="{% url 'form_teacher' %}">Adicionar Professor</a>
             <a class="btn btn-info" href="{% url 'update_teacher' selected_teacher.id %}">Editar Informações</a>
             <a class="btn btn-danger" href="{% url 'delete_teacher' selected_teacher.id %}">Excluir</a>
         </div>
