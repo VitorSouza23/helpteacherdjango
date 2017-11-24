@@ -12,11 +12,11 @@ def grades(request, student_id):
     return render(request, 'app_model/grades.html', context=my_dict)
 
 def classes(request):
-    my_dict = {"classes": models.ClassVO.objects.all()}
+    my_dict = {"classes": models.ClassVO.objects.filter(user__id=request.user.id)}
     return render(request, 'app_model/classes.html', context=my_dict)
 
 def courses(request):
-    my_dict = {"courses": models.CourseVO.objects.all()}
+    my_dict = {"courses": models.CourseVO.objects.filter(user__id=request.user.id)}
     return render(request, 'app_model/courses.html', context=my_dict)
 
 def students(request):
@@ -24,13 +24,14 @@ def students(request):
     return render(request, 'app_model/students.html', context=my_dict)
 
 def form_course(request):
-    form = forms.FormCourse()
+    form = forms.FormCourse(request.user)
     if request.method == "POST":
         form = forms.FormCourse(request.POST)
         if form.is_valid():
             course = models.CourseVO()
             course.code = form.cleaned_data['code']
             course.name = form.cleaned_data['name']
+            course.user = request.user
             course.save()
             return HttpResponseRedirect('/app_model/courses/')
 
@@ -66,6 +67,7 @@ def form_class(request):
             classvo.course = form.cleaned_data['course']
             classvo.discipline = form.cleaned_data['discipline']
             classvo.schedule = form.cleaned_data['schedule']
+            classvo.user = request.user
             classvo.save()
             return HttpResponseRedirect('/app_model/classes/')
 

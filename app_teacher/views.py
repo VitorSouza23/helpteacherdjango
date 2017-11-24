@@ -9,18 +9,19 @@ import models, forms
 
 # Create your views here.
 def teacher(request):
-    teacherObj = None
-    teacherQuery = models.TeacherVO.objects.filter(user__id=request.user.id).all()
+    teacherQuery = models.TeacherVO.objects.filter(user__id=request.user.id)
+    print len(teacherQuery)
     if len(teacherQuery) >= 1:
         teacherObj = teacherQuery[0]
+        my_dict = {"teacher": teacherObj}    
+        return render(request, 'app_teacher/teacher.html', context=my_dict)
     else:
         teacherObj = models.TeacherVO()
-        teacherObj = request.user
+        teacherObj.user = request.user
         teacherObj.save()
-
-    print teacherObj
-    my_dict = {"teacher": teacherObj}    
-    return render(request, 'app_teacher/teacher.html', context=my_dict)
+        print teacherObj.id
+        my_dict = {"teacher": teacherObj}    
+        return render(request, 'app_teacher/teacher.html', context=my_dict)
 
 def form_teacher(request):
     form = forms.FormTeacher()
