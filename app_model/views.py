@@ -24,7 +24,7 @@ def students(request):
     return render(request, 'app_model/students.html', context=my_dict)
 
 def form_course(request):
-    form = forms.FormCourse(request.user)
+    form = forms.FormCourse()
     if request.method == "POST":
         form = forms.FormCourse(request.POST)
         if form.is_valid():
@@ -57,9 +57,9 @@ def update_course(request, course_id):
 
 
 def form_class(request):
-    form = forms.FormClass()
+    form = forms.FormClass(request.user)
     if request.method == "POST":
-        form = forms.FormClass(request.POST)
+        form = forms.FormClass(request.user,request.POST)
         if form.is_valid():
             classvo = models.ClassVO()
             classvo.code = form.cleaned_data['code']
@@ -70,7 +70,7 @@ def form_class(request):
             classvo.user = request.user
             classvo.save()
             return HttpResponseRedirect('/app_model/classes/')
-
+    
     return render(request, 'app_model/form_class.html', {'form': form})
 
 def delete_class(request, class_id):
@@ -80,9 +80,9 @@ def delete_class(request, class_id):
 
 def update_class(request, class_id):
     classvo = models.ClassVO.objects.get(id=class_id)
-    form = forms.FormClass(initial={'code': classvo.code, 'name': classvo.name, 'discipline': classvo.discipline, 'schedule': classvo.schedule, 'course': classvo.course})
+    form = forms.FormClass(request.user,initial={'code': classvo.code, 'name': classvo.name, 'discipline': classvo.discipline, 'schedule': classvo.schedule.strftime('%H:%M'), 'course': classvo.course})
     if request.method == "POST":
-        form = forms.FormCourse(request.POST)
+        form = forms.FormCourse(request.user,request.POST)
         if form.is_valid():
             classvo.code = form.cleaned_data['code']
             classvo.name = form.cleaned_data['name']

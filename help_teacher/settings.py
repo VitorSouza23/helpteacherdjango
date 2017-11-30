@@ -54,7 +54,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'help_teacher.threadlocals.ThreadLocalsMiddleware',
 ]
 
 ROOT_URLCONF = 'help_teacher.urls'

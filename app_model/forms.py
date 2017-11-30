@@ -1,19 +1,35 @@
 #-*- coding:UTF-8 -*-
 from django import forms
 import models
-from help_teacher.threadlocals import get_current_user
+
 
 class FormCourse(forms.Form):
     code = forms.IntegerField(label='Código')
     name = forms.CharField(max_length=264, label="Nome do Curso")
 
 class FormClass(forms.Form):
-    user = 
     code = forms.IntegerField(label='Código')
     discipline = forms.CharField(max_length=264, label='Disciplina')
     name = forms.CharField(max_length=264, label='Nome (Identificador) da Turma')
     schedule = forms.DateTimeField(['%H:%M'], label="Horário da Aula (HH:MM):")
-    course = forms.ModelChoiceField(queryset=models.CourseVO.objects.filter(user__id=user.id), label='Curso')
+
+    class Meta:
+        fields = [
+            'code',
+            'discipline',
+            'name',
+            'schedule',
+            'course'
+        ]
+    def __init__(self, user, *args, **kwargs):
+        super(FormClass, self).__init__(*args, **kwargs)
+        self.user = user
+        print user
+        self.fields['course'] = forms.ModelChoiceField(queryset=models.CourseVO.objects.filter(user__id=self.user.id), label='Curso')
+        
+
+    
+    
 
 class FormStudent(forms.Form):
     registration = forms.IntegerField(label='Matrícula')

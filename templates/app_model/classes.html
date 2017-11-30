@@ -28,7 +28,7 @@
                 </td>
                 <td>{{classvo.name}}</td>
                 <td>{{classvo.discipline}}</td>
-                <td>{{classvo.schedule}}</td>
+                <td>{{classvo.schedule|time:"H:i"}}</td>
                 <td>
                     <div class="courses-btns">
                         <a href="{% url 'delete_class' classvo.id %}" class="btn btn-danger btn-xs">Excluir</a>
