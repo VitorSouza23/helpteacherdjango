@@ -1,9 +1,16 @@
 {% extends "help_teacher_app/base.html" %}
 {% load crispy_forms_tags %}
 
+<!DOCTYPE html> {% load staticfiles %} 
+
+{% block styleCustom %}
+<link rel="stylesheet" href="{% static 'css/loginstyle.css' %}">
+<title>Cursos</title>
+{% endblock %} 
 
 {% block content %}
-<div class='col-sm-6 col-sm-offset-3'>
+
+<div class='col-sm-6 col-sm-offset-3 login-title'>
 <h1>{{ title }}</h1>
 <hr/>
 

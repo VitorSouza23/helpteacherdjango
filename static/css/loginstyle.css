@@ -1,0 +1,38 @@
+.copyright{
+    display: none;
+}
+
+.login-title{
+    text-align: center;
+    background-color: steelblue;
+    margin: auto;
+    border-radius: 50px;
+    padding: 5%;
+    color: white;
+}
+
+.control-label{
+    margin-top: 10px;
+}
+
+.btn{
+    border-radius: 75px;
+    color: white;
+    background-color: lightcoral;
+    border-color: grey;
+    width: 200px;
+    margin-top: 20px;
+}
+
+body{
+    background: url('../images/professor-login.jpg');
+    background-size: cover;
+}
+
+hr{
+    border-top: 1px solid white;
+}
+
+.help-block{
+    color: yellow
+}
