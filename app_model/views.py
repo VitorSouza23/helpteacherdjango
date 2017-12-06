@@ -82,22 +82,22 @@ def update_class(request, class_id):
     classvo = models.ClassVO.objects.get(id=class_id)
     form = forms.FormClass(request.user,initial={'code': classvo.code, 'name': classvo.name, 'discipline': classvo.discipline, 'schedule': classvo.schedule.strftime('%H:%M'), 'course': classvo.course})
     if request.method == "POST":
-        form = forms.FormCourse(request.user,request.POST)
+        form = forms.FormClass(request.user, request.POST)
         if form.is_valid():
             classvo.code = form.cleaned_data['code']
             classvo.name = form.cleaned_data['name']
-            classvo.course = form.cleaned_data['course']
             classvo.discipline = form.cleaned_data['discipline']
             classvo.schedule = form.cleaned_data['schedule']
-            course.save()
+            classvo.course = form.cleaned_data['course']
+            classvo.save()
             return HttpResponseRedirect('/app_model/classes/')
 
     return render(request, 'app_model/form_class.html', {'form': form}) 
 
 def form_student(request):
-    form = forms.FormStudent()
+    form = forms.FormStudent(request.user)
     if request.method == "POST":
-        form = forms.FormStudent(request.POST)
+        form = forms.FormStudent(request.user, request.POST)
         if form.is_valid():
             student = models.StudentVO()
             student.name = form.cleaned_data['name']
@@ -115,9 +115,9 @@ def delete_student(request, student_id):
 
 def update_student(request, student_id):
     student = models.StudentVO.objects.get(id=student_id)
-    form = forms.FormStudent(initial={'name': student.name, 'registration': student.registration, 'class_scholl': student.class_scholl})
+    form = forms.FormStudent(request.user,initial={'name': student.name, 'registration': student.registration, 'class_scholl': student.class_scholl})
     if request.method == "POST":
-        form = forms.FormStudent(request.POST)
+        form = forms.FormStudent(request.user,request.POST)
         if form.is_valid():
             student.name = form.cleaned_data['name']
             student.registration = form.cleaned_data['registration']
