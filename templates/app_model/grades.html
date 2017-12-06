@@ -2,17 +2,16 @@
 <!DOCTYPE html> {% load staticfiles %}
 
 {% block styleCustom %}
-<title>Notas</title>
+<title>Notas de {{student.name}}</title>
 <link rel="stylesheet" href="{% static 'css/formstyle.css' %}">
 <link rel="stylesheet" href="{% static 'css/coursesstyle.css' %}">
 {% endblock %}
 
 {% block content %}
-<h1>Notas do Aluno {{student.name}}</h1>
-<div class="jumbotron jumbo-form">
+<h1>Notas de {{student.name}}</h1>
+<div class="jumbotron jumbo-form jumbo-info">
 
     <table class="table table-striped">
-
         <thead>
             <tr>
                 <th>Valor</th>

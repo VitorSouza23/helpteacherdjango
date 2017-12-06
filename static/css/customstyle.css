@@ -1,91 +1,89 @@
-.copyright{
+.copyright {
     text-align: center;
 }
 
-nav{   
-    font-size: 18px;   
+nav {
+    font-size: 18px;
 }
 
-.navbar-default .container-fluid a, .navbar-default .container-fluid a:focus{
+.navbar-default .container-fluid a, .navbar-default .container-fluid a:focus {
     color: #333399;
 }
 
-.navbar-default .container-fluid a:hover{
+.navbar-default .container-fluid a:hover {
     color: #0191C8;
 }
 
-.navbar-default .container-fluid .navbar-nav a,.navbar-default .container-fluid .navbar-nav a:focus{
-    
-    color: 	#0191C8;
+.navbar-default .container-fluid .navbar-nav a, .navbar-default .container-fluid .navbar-nav a:focus {
+    color: #0191C8;
 }
 
-.navbar-default .container-fluid .navbar-nav a:hover{
+.navbar-default .container-fluid .navbar-nav a:hover {
     color: #333399;
 }
 
-
-.welcomejumbotron{
+.welcomejumbotron {
     background: url('../images/professor.jpg');
     background-size: cover;
     padding-bottom: 25%;
-    text-align: left;    
+    text-align: left;
     border: 1px groove rgba(28, 52, 100, 0.5);
 }
 
-.welcomejumbotron h1{
+.welcomejumbotron h1 {
     color: #361072;
     font-weight: bolder;
     margin-top: 0;
     font-size: 36px;
 }
 
-.panel-default .panel-heading{
+.panel-default .panel-heading {
     background-color: #cccccc;
     font-weight: bold;
-    color:#333399;
+    color: #333399;
 }
 
-.panel-default .panel-body{
-    margin: 1% 1% 1% 1%;    
+.panel-default .panel-body {
+    margin: 1% 1% 1% 1%;
 }
 
-.table-options{
-    margin-bottom: 10%;   
+.table-options {
+    margin-bottom: 10%;
 }
 
-.table-options p{
+.table-options p {
     text-align: center;
     font-weight: bold;
 }
 
-.align-table-options{
+.align-table-options {
     text-align: center;
 }
 
-.align-table-options .btn-primary{
+.align-table-options .btn-primary {
     width: 75%;
 }
 
-
-.navbar-login
-{
+.navbar-login {
     width: 305px;
     padding: 10px;
     padding-bottom: 0px;
 }
 
-.navbar-login-session
-{
+.navbar-login-session {
     padding: 10px;
     padding-bottom: 0px;
     padding-top: 0px;
 }
 
-.icon-size
-{
+.icon-size {
     font-size: 87px;
 }
 
-.btn-font-white{
+.btn-font-white {
     color: white !important;
+}
+
+.login-info {
+    text-align: center;
 }

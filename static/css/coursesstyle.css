@@ -1,15 +1,15 @@
-body{
+body {
     text-align: center;
 }
 
- h1{
+h1 {
     color: #0191C8;
     font-weight: bolder;
     margin-top: 20px;
     font-size: 36px;
 }
 
-.jumbo-courses{
+.jumbo-courses {
     margin-top: 20px;
     text-align: center;
     border: 1px groove grey;
@@ -18,10 +18,9 @@ body{
 
 .jumbo-courses .table-hover {
     margin-top: 25px;
-  
 }
 
-h2{
+h2 {
     color: #361072;
     font-weight: bolder;
     margin-bottom: 30px;
@@ -29,26 +28,39 @@ h2{
 }
 
 .jumbo-courses .table-hover thead {
-    background-color:  	#e0e0e0;
+    background-color: #e0e0e0;
     color: #361072;
 }
 
-.jumbo-courses .table-hover thead tr th{
+.jumbo-courses .table-hover thead tr th {
     text-align: center;
 }
 
-.jumbo-courses .courses-info-btns{
+.jumbo-courses .courses-info-btns {
     margin-top: 50px;
 }
 
-.jumbo-courses .courses-info-btns a{
+.jumbo-courses .courses-info-btns a {
     width: 150px;
 }
 
-.jumbo-courses .courses-btns a{
+.jumbo-courses .courses-btns a {
     width: 50px;
 }
 
-.jumbo-courses .student-btns a{
-    width:80px;
+.jumbo-courses .student-btns a {
+    width: 80px;
+}
+
+.student-name {
+    color: purple;
+}
+
+.jumbo-info {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.copyright {
+    margin-top: 15%;
 }

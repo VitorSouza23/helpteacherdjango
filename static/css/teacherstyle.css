@@ -1,42 +1,44 @@
-.teacher-content{
+.teacher-content {
     text-align: center;
 }
 
-.teacher-content h1{
+.teacher-content h1 {
     color: #0191C8;
     font-weight: bolder;
     margin-top: 20px;
     font-size: 36px;
 }
 
-.teacher-content-select{
-   margin-top: 20px;
+.teacher-content-select {
+    margin-top: 20px;
     padding: 2.5% 0;
-   text-align: center;
-   width: 50%;
-   display: inline-flex;
+    text-align: center;
+    width: 50%;
+    display: inline-flex;
 }
 
-.teacher-content-select label{
+.teacher-content-select label {
     color: #0191C8;
     font-weight: bolder;
     margin-top: 0;
     font-size: 21px;
 }
 
-.teacher-content-select select{
+.teacher-content-select select {
     margin-left: 10px;
     width: 250px;
     height: 30px;
 }
 
-.teacher-info{
+.teacher-info {
     border: 1px groove grey;
     text-align: center;
     background-color: #f6fefd;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
-.teacher-info p{
+.teacher-info p {
     margin: 0 150px;
     border: 1px solid black;
     background-color: white;
@@ -44,10 +46,14 @@
     border-radius: 25px;
 }
 
-.teacher-info .teacher-info-btns{
+.teacher-info .teacher-info-btns {
     margin-top: 50px;
 }
 
-.teacher-info .teacher-info-btns a{
+.teacher-info .teacher-info-btns a {
     width: 150px;
+}
+
+.copyright {
+    margin-top: 15%;
 }

@@ -1,20 +1,16 @@
 {%extends 'help_teacher_app/base.html'%}
-<!DOCTYPE html> {% load staticfiles %} 
-
-{% block styleCustom %}
+<!DOCTYPE html> {% load staticfiles %} {% block styleCustom %}
 <link rel="stylesheet" href="{% static 'css/coursesstyle.css' %}">
 <title>Cursos</title>
-{% endblock %} 
-
-{% block content %}
+{% endblock %} {% block content %}
 <h1>Lista de Cursos</h1>
-<div class="jumbotron jumbo-courses">
+<div class="jumbotron jumbo-courses jumbo-info">
 
     <table class="table table-hover">
         <thead>
             <tr>
-                <th>Curso</th>
                 <th>Código</th>
+                <th>Curso</th>
                 <th>Opções</th>
             </tr>
         </thead>
@@ -23,7 +19,7 @@
             <tr>
                 <td>{{course.code}}</td>
                 <td>
-                    <a href="">{{course.name}}</a>
+                    <a href="{% url 'update_course' course.id %}">{{course.name}}</a>
                 </td>
                 <td>
                     <div class="courses-btns">
