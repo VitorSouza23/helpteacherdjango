@@ -20,7 +20,7 @@ def courses(request):
     return render(request, 'app_model/courses.html', context=my_dict)
 
 def students(request):
-    my_dict = {"students": models.StudentVO.objects.all()}
+    my_dict = {"students": models.StudentVO.objects.filter(user__id=request.user.id)}
     return render(request, 'app_model/students.html', context=my_dict)
 
 def form_course(request):
@@ -103,6 +103,7 @@ def form_student(request):
             student.name = form.cleaned_data['name']
             student.registration = form.cleaned_data['registration']
             student.class_scholl = form.cleaned_data['class_scholl']
+            student.user = request.user
             student.save()
             return HttpResponseRedirect('/app_model/students/')
 
